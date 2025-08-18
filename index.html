@@ -856,7 +856,7 @@
             <div class="donation-section">
                 <h3>Support This Work</h3>
                 <p>If this app encouraged you, consider supporting the work of Depths to Heights. Your donation helps us create more free, life-giving tools.</p>
-                <a href="#" class="donation-btn" onclick="alert('PayPal donation link will go here')">Donate via PayPal</a>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=8GRE7B8C3TP2U" class="donation-btn" target="_blank">Donate via PayPal</a>
             </div>
 
             <div class="crisis-note">
@@ -1004,23 +1004,102 @@
             playTransitionSound();
         }
 
-        // Story Expansion
+        // Story Expansion - Fixed to show in screen instead of alert
         function expandStory(storyId, element) {
-            const storyDiv = document.getElementById('story-' + storyId);
+            const stories = {
+                elijah: {
+                    title: "Elijah Under the Broom Tree",
+                    content: "After his greatest victory over the prophets of Baal, Elijah ran in fear from Jezebel and prayed to die. But God didn't scold him. Instead, He provided rest, food, and water. An angel touched him twice, saying 'Get up and eat, for the journey is too much for you.' Then, in a gentle whisper at Mount Horeb, God reminded Elijah he wasn't alone - 7,000 others had not bowed to Baal. Sometimes the bravest thing is to accept care. God meets us in our exhaustion with tenderness, not judgment."
+                },
+                david: {
+                    title: "David in the Cave", 
+                    content: "In the caves of Adullam and En Gedi, David poured out his complaints to God while hiding from Saul who wanted to kill him. He didn't pretend to be strong. In Psalm 142, written from the cave, he cried 'No one cares for my soul.' These 'cave psalms' became Scripture, showing us that our honest cries in darkness become lights for others. God can handle our rawness. He saves our tears in His bottle."
+                },
+                jesus: {
+                    title: "Jesus in the Wilderness",
+                    content: "Before His ministry began, Jesus spent 40 days in the wilderness. Hungry, alone, tested by Satan himself. The Son of God knew wilderness - not as punishment but as preparation. He emerged 'in the power of the Spirit.' Your wilderness isn't wasted. It's not meaningless suffering. God is preparing you for something. You will emerge with power you didn't have before."
+                },
+                paul: {
+                    title: "Paul's Thorn",
+                    content: "Three times Paul begged God to remove his thorn in the flesh. Three times God said no. But with the 'no' came a promise: 'My grace is sufficient for you, for my power is made perfect in weakness.' Paul learned to boast in his weaknesses because when he was weak, then he was strong. Sometimes healing looks different than we expect. Sometimes the miracle is surviving with the thorn."
+                },
+                job: {
+                    title: "Job's Dark Night",
+                    content: "Job lost everything in a single day - his children, wealth, health. He sat in ashes, scraping his sores with pottery. His friends failed him with their theology. His wife told him to curse God and die. But in the whirlwind, God came. Not with answers, but with Presence. Job said, 'My ears had heard of you but now my eyes have seen you.' Sometimes seeing God is enough. The story ends with double restoration."
+                }
+            };
             
-            // Toggle the story expansion
-            if (storyDiv.classList.contains('active')) {
-                storyDiv.classList.remove('active');
-            } else {
-                // Close all other stories
-                document.querySelectorAll('.story-expanded').forEach(story => {
-                    story.classList.remove('active');
-                });
-                // Open this story
-                storyDiv.classList.add('active');
+            const story = stories[storyId];
+            if (story) {
+                // Show story in the same screen with proper navigation
+                const storiesScreen = document.getElementById('wildernessStories');
+                storiesScreen.innerHTML = `
+                    <div class="header">
+                        <h1>${story.title}</h1>
+                        <p>A Biblical Wilderness Story</p>
+                    </div>
+                    
+                    <div class="content-section">
+                        <div class="psalm-display">
+                            <div class="psalm-text" style="text-align: left; font-style: normal;">
+                                ${story.content}
+                            </div>
+                        </div>
+                        
+                        <div class="discipline-item">
+                            <h4>What This Means for You</h4>
+                            <div class="discipline-practice">
+                                God is with you in your wilderness just as He was with ${storyId === 'jesus' ? 'His Son' : storyId.charAt(0).toUpperCase() + storyId.slice(1)}.<br>
+                                Your story isn't over.<br>
+                                This chapter is not the end.<br>
+                                Hold on. Dawn is coming.
+                            </div>
+                        </div>
+                        
+                        <button class="btn" onclick="loadWildernessStories()">Back to All Stories</button>
+                    </div>
+                `;
             }
             
             playClickSound();
+        }
+        
+        // Function to reload wilderness stories screen
+        function loadWildernessStories() {
+            const storiesScreen = document.getElementById('wildernessStories');
+            storiesScreen.innerHTML = `
+                <div class="header">
+                    <h1>You're Not Alone</h1>
+                    <p>God's greatest servants knew the wilderness</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="story-card" onclick="expandStory('elijah', this)">
+                        <h3>Elijah Under the Broom Tree</h3>
+                        <p>When the mighty prophet wanted to die, God sent angels with bread and water...</p>
+                    </div>
+
+                    <div class="story-card" onclick="expandStory('david', this)">
+                        <h3>David in the Cave</h3>
+                        <p>Hiding from Saul, feeling abandoned, yet writing psalms of hope...</p>
+                    </div>
+
+                    <div class="story-card" onclick="expandStory('jesus', this)">
+                        <h3>Jesus in the Wilderness</h3>
+                        <p>40 days of hunger, temptation, and spiritual warfare before ministry began...</p>
+                    </div>
+
+                    <div class="story-card" onclick="expandStory('paul', this)">
+                        <h3>Paul's Thorn</h3>
+                        <p>When healing didn't come, grace proved sufficient...</p>
+                    </div>
+
+                    <div class="story-card" onclick="expandStory('job', this)">
+                        <h3>Job's Dark Night</h3>
+                        <p>Everything lost, sitting in ashes, yet finding God in the whirlwind...</p>
+                    </div>
+                </div>
+            `;
         }
 
         // Journal Functions
@@ -1035,7 +1114,17 @@
                 });
                 localStorage.setItem('wildernessJournals', JSON.stringify(journals));
                 
-                alert("Your words have been held in this sacred space. Return anytime to continue your conversation with God.");
+                // Show success message inline
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Saved to Your Heart';
+                btn.style.background = 'linear-gradient(135deg, #10b981 0%, #34d399 100%)';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                }, 2000);
+                
                 playTransitionSound();
             }
         }
