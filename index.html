@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: Georgia, serif;
             background: linear-gradient(135deg, #e8f0f2 0%, #d4e4e8 100%);
             color: #2c3e50;
             min-height: 100vh;
@@ -22,80 +22,76 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            background: white;
+            position: relative;
+            padding-bottom: 70px;
         }
 
+        /* Screens */
         .screen {
             display: none;
-            animation: fadeIn 1s ease-in;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+            padding: 20px;
+            animation: fadeIn 0.5s ease;
         }
 
         .screen.active {
-            display: flex;
+            display: block;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        /* Header Styles */
+        /* Header */
         .header {
-            text-align: center;
-            padding: 30px 20px;
             background: linear-gradient(135deg, #6b8e9f 0%, #8fa7b3 100%);
             color: white;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 30px 20px;
+            text-align: center;
+            margin: -20px -20px 20px -20px;
         }
 
         .header h1 {
             font-size: 28px;
             margin-bottom: 10px;
-            font-weight: normal;
         }
 
         .header p {
             font-size: 16px;
-            opacity: 0.95;
-            line-height: 1.6;
+            opacity: 0.9;
         }
 
-        /* Hook Screen */
-        .hook-screen {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* Welcome Screen */
+        .welcome-box {
             text-align: center;
             padding: 40px 20px;
         }
 
-        .hook-text {
-            font-size: 24px;
-            color: #4a6572;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            font-style: italic;
-        }
-
-        .hook-verse {
-            font-size: 18px;
-            color: #6b8e9f;
-            margin-bottom: 40px;
+        .verse-box {
+            background: #f8fbf8;
+            border-left: 4px solid #7c9885;
             padding: 20px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 10px;
+            margin: 30px 0;
+            border-radius: 8px;
         }
 
-        /* Button Styles */
+        .verse-box p {
+            font-style: italic;
+            line-height: 1.6;
+            color: #4a6572;
+        }
+
+        .verse-box cite {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            color: #7c9885;
+            font-weight: bold;
+        }
+
+        /* Buttons */
         .btn {
             background: linear-gradient(135deg, #7c9885 0%, #8fa49a 100%);
             color: white;
@@ -104,63 +100,68 @@
             font-size: 18px;
             border-radius: 25px;
             cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            font-family: 'Georgia', serif;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
         }
 
         .btn:active {
-            transform: translateY(0);
+            transform: scale(0.98);
         }
 
         .btn-secondary {
             background: linear-gradient(135deg, #94a5ab 0%, #a8b7bc 100%);
-            padding: 12px 24px;
-            font-size: 16px;
-            margin: 10px;
         }
 
-        /* Mood Tracker */
-        .mood-section {
+        /* Menu Cards */
+        .menu-card {
             background: white;
-            padding: 25px;
+            border: 2px solid #e8eff1;
             border-radius: 15px;
-            margin-bottom: 20px;
+            padding: 20px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .mood-section h2 {
-            color: #4a6572;
-            margin-bottom: 20px;
-            font-size: 22px;
-            font-weight: normal;
+        .menu-card:active {
+            transform: scale(0.98);
         }
 
-        .mood-options {
+        .menu-card h3 {
+            color: #4a6572;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .menu-card p {
+            color: #6b8e9f;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Mood Selection */
+        .mood-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
 
         .mood-btn {
-            padding: 20px;
-            background: linear-gradient(135deg, #f7f9fa 0%, #e8eff1 100%);
-            border: 2px solid transparent;
+            background: #f7f9fa;
+            border: 2px solid #e8eff1;
             border-radius: 12px;
+            padding: 20px;
+            text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-align: center;
         }
 
-        .mood-btn:hover {
-            border-color: #8fa7b3;
-            transform: translateY(-2px);
+        .mood-btn:active {
+            transform: scale(0.95);
         }
 
         .mood-btn.selected {
@@ -180,15 +181,15 @@
         }
 
         /* Psalm Display */
-        .psalm-display {
+        .psalm-box {
             background: linear-gradient(135deg, #f8fbf8 0%, #eef4ee 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
             border-left: 4px solid #7c9885;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
         }
 
-        .psalm-display h3 {
+        .psalm-box h3 {
             color: #4a6572;
             margin-bottom: 15px;
             font-size: 20px;
@@ -199,29 +200,29 @@
             line-height: 1.8;
             color: #5a6c75;
             font-style: italic;
+            margin-bottom: 15px;
         }
 
         .psalm-reference {
             text-align: right;
             color: #7c9885;
-            margin-top: 15px;
-            font-size: 16px;
+            font-weight: bold;
         }
 
-        /* Wilderness Stories */
+        /* Story Cards */
         .story-card {
             background: white;
-            padding: 20px;
+            border: 1px solid #e8eff1;
             border-radius: 12px;
-            margin-bottom: 15px;
+            padding: 20px;
+            margin: 15px 0;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .story-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        .story-card:active {
+            transform: scale(0.98);
         }
 
         .story-card h3 {
@@ -233,69 +234,61 @@
         .story-card p {
             color: #6b8e9f;
             line-height: 1.6;
+            font-size: 14px;
         }
 
-        .story-expanded {
-            background: linear-gradient(135deg, #f0f7f2 0%, #e6f2e9 100%);
+        .story-full {
+            background: #f9fafb;
             padding: 20px;
             border-radius: 10px;
-            margin-top: 10px;
-            display: none;
-            color: #4a6572;
+            margin: 20px 0;
             line-height: 1.8;
+            color: #4a6572;
         }
 
-        .story-expanded.active {
-            display: block;
-        }
-
-        /* Spiritual Disciplines */
-        .discipline-item {
-            background: linear-gradient(135deg, #fafbfc 0%, #f0f4f5 100%);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
+        /* Discipline Cards */
+        .discipline-card {
+            background: #fafbfc;
             border-left: 3px solid #8fa7b3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
         }
 
-        .discipline-item h4 {
+        .discipline-card h4 {
             color: #4a6572;
             margin-bottom: 10px;
             font-size: 18px;
         }
 
-        .discipline-item p {
+        .discipline-card p {
             color: #6b8e9f;
             line-height: 1.6;
             margin-bottom: 10px;
         }
 
-        .discipline-practice {
+        .practice-box {
             background: white;
             padding: 15px;
             border-radius: 8px;
             font-style: italic;
             color: #5a6c75;
+            margin-top: 10px;
         }
 
-        /* Journal Section */
+        /* Journal */
         .journal-area {
             width: 100%;
             min-height: 150px;
             padding: 15px;
             border: 2px solid #d4e4e8;
             border-radius: 10px;
-            font-family: 'Georgia', serif;
+            font-family: Georgia, serif;
             font-size: 16px;
             line-height: 1.6;
             resize: vertical;
             background: white;
             color: #4a6572;
-        }
-
-        .journal-area:focus {
-            outline: none;
-            border-color: #8fa7b3;
         }
 
         /* Bottom Navigation */
@@ -305,31 +298,31 @@
             left: 0;
             right: 0;
             background: linear-gradient(135deg, #6b8e9f 0%, #8fa7b3 100%);
-            padding: 15px;
+            padding: 10px;
             display: flex;
             justify-content: space-around;
             box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .nav-btn {
             background: rgba(255,255,255,0.2);
             color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 10px 20px;
+            border: none;
+            padding: 8px 16px;
             border-radius: 20px;
             cursor: pointer;
+            font-size: 12px;
             transition: all 0.3s ease;
-            font-family: 'Georgia', serif;
-            font-size: 14px;
         }
 
-        .nav-btn:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
+        .nav-btn:active {
+            transform: scale(0.95);
         }
 
-        /* Info Modal */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -340,7 +333,6 @@
             background: rgba(0,0,0,0.7);
             z-index: 2000;
             padding: 20px;
-            overflow-y: auto;
         }
 
         .modal.active {
@@ -380,7 +372,7 @@
         }
 
         .info-section {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             padding-bottom: 20px;
             border-bottom: 1px solid #e8eff1;
         }
@@ -392,16 +384,11 @@
         .info-section h3 {
             color: #4a6572;
             margin-bottom: 10px;
-            font-size: 18px;
         }
 
-        .info-section p, .info-section ul {
+        .info-section p {
             color: #6b8e9f;
             line-height: 1.6;
-        }
-
-        .info-section ul {
-            padding-left: 20px;
         }
 
         .crisis-note {
@@ -412,12 +399,8 @@
             margin: 20px 0;
         }
 
-        .crisis-note strong {
-            color: #e65100;
-        }
-
         .donation-section {
-            background: linear-gradient(135deg, #f0f7f2 0%, #e6f2e9 100%);
+            background: #f0f7f2;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -432,84 +415,27 @@
             text-decoration: none;
             display: inline-block;
             margin-top: 10px;
-            transition: all 0.3s ease;
         }
 
-        .donation-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        /* Audio Controls */
+        /* Audio Toggle */
         .audio-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: rgba(255,255,255,0.9);
+            background: white;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1001;
-            transition: all 0.3s ease;
-        }
-
-        .audio-toggle:hover {
-            transform: scale(1.1);
         }
 
         .audio-toggle.muted {
-            background: rgba(200,200,200,0.9);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 24px;
-            }
-            
-            .hook-text {
-                font-size: 20px;
-            }
-            
-            .mood-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .bottom-nav {
-                padding: 10px;
-            }
-            
-            .nav-btn {
-                padding: 8px 15px;
-                font-size: 12px;
-            }
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(139,167,179,0.3);
-            border-radius: 50%;
-            border-top-color: #8fa7b3;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Content Sections */
-        .content-section {
-            flex: 1;
-            padding-bottom: 80px;
-            overflow-y: auto;
+            background: #e5e7eb;
         }
     </style>
 </head>
@@ -521,19 +447,24 @@
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Hook Screen -->
-        <div class="screen active" id="hookScreen">
-            <div class="hook-screen">
-                <div class="hook-text">
-                    "Have you ever felt like God has led you into a wilderness?"
+        <!-- Welcome Screen -->
+        <div class="screen active" id="welcomeScreen">
+            <div class="header">
+                <h1>Wilderness Journey</h1>
+                <p>A companion through spiritual valleys</p>
+            </div>
+            
+            <div class="welcome-box">
+                <h2 style="color: #4a6572; margin-bottom: 20px;">You Are Not Alone</h2>
+                
+                <div class="verse-box">
+                    <p>"Even though I walk through the valley of the shadow of death, I will fear no evil, for You are with me"</p>
+                    <cite>- Psalm 23:4</cite>
                 </div>
-                <div class="hook-verse">
-                    "He knows the way that I take;<br>
-                    when He has tested me,<br>
-                    I will come forth as gold."<br>
-                    <small>- Job 23:10</small>
-                </div>
-                <button class="btn" onclick="startJourney()">Begin Your Journey</button>
+                
+                <button class="btn" onclick="showScreen('mainMenu')">
+                    Begin Your Journey
+                </button>
             </div>
         </div>
 
@@ -541,255 +472,294 @@
         <div class="screen" id="mainMenu">
             <div class="header">
                 <h1>Wilderness Journey</h1>
-                <p>A companion through spiritual valleys toward hope</p>
+                <p>Choose Your Path Today</p>
             </div>
             
-            <div class="content-section">
-                <div class="mood-section">
-                    <h2>Where are you today?</h2>
-                    <div class="mood-options">
-                        <div class="mood-btn" onclick="selectMood('darkness', this)">
-                            <div class="mood-icon">🌑</div>
-                            <div class="mood-label">In Deep Darkness</div>
-                        </div>
-                        <div class="mood-btn" onclick="selectMood('lost', this)">
-                            <div class="mood-icon">🌫️</div>
-                            <div class="mood-label">Lost & Confused</div>
-                        </div>
-                        <div class="mood-btn" onclick="selectMood('weary', this)">
-                            <div class="mood-icon">😔</div>
-                            <div class="mood-label">Weary & Exhausted</div>
-                        </div>
-                        <div class="mood-btn" onclick="selectMood('numb', this)">
-                            <div class="mood-icon">🫥</div>
-                            <div class="mood-label">Numb & Empty</div>
-                        </div>
-                    </div>
-                    <button class="btn" onclick="showScreen('psalmTherapy')">Find Your Psalm</button>
-                </div>
-
-                <div class="mood-section">
-                    <h2>Journey Options</h2>
-                    <button class="btn-secondary" onclick="showScreen('wildernessStories')">Wilderness Stories</button>
-                    <button class="btn-secondary" onclick="showScreen('simpleDisciplines')">When Faith Feels Impossible</button>
-                    <button class="btn-secondary" onclick="showScreen('hopeReminders')">Hope Reminders</button>
-                    <button class="btn-secondary" onclick="showScreen('journalSpace')">Journal & Pray</button>
-                </div>
+            <div class="menu-card" onclick="showScreen('moodCheck')">
+                <h3>🙏 Find Your Psalm</h3>
+                <p>Match your current feelings with David's prayers</p>
+            </div>
+            
+            <div class="menu-card" onclick="showScreen('storiesMenu')">
+                <h3>📖 Wilderness Stories</h3>
+                <p>Biblical heroes who faced dark valleys</p>
+            </div>
+            
+            <div class="menu-card" onclick="showScreen('disciplinesMenu')">
+                <h3>🕊️ Simple Practices</h3>
+                <p>When faith feels impossible</p>
+            </div>
+            
+            <div class="menu-card" onclick="showScreen('hopeScreen')">
+                <h3>✨ Hope Reminders</h3>
+                <p>God's promises for your wilderness</p>
+            </div>
+            
+            <div class="menu-card" onclick="showScreen('journalScreen')">
+                <h3>📝 Journal & Pray</h3>
+                <p>Pour out your heart to God</p>
             </div>
         </div>
 
-        <!-- Psalm Therapy Screen -->
-        <div class="screen" id="psalmTherapy">
+        <!-- Mood Check Screen -->
+        <div class="screen" id="moodCheck">
             <div class="header">
-                <h1>Your Psalm for Today</h1>
-                <p>David knew the wilderness. His prayers can be yours.</p>
+                <h1>How Are You Today?</h1>
+                <p>Be honest with God</p>
             </div>
             
-            <div class="content-section">
-                <div class="psalm-display" id="psalmDisplay">
-                    <h3>A Prayer for Your Heart</h3>
-                    <div class="psalm-text">
-                        "Why, my soul, are you downcast? Why so disturbed within me? Put your hope in God, for I will yet praise him, my Savior and my God."
-                    </div>
-                    <div class="psalm-reference">Psalm 42:11</div>
+            <div class="mood-grid">
+                <div class="mood-btn" onclick="selectMood('darkness', this)">
+                    <div class="mood-icon">🌑</div>
+                    <div class="mood-label">In Deep Darkness</div>
                 </div>
-
-                <div class="mood-section">
-                    <h3>Reflect</h3>
-                    <p>David experienced every emotion you're feeling. He didn't hide them from God - he brought them all, raw and honest.</p>
-                    <br>
-                    <p>What would you like to tell God right now, with David's honesty?</p>
-                    <br>
-                    <textarea class="journal-area" placeholder="Pour out your heart here..."></textarea>
+                <div class="mood-btn" onclick="selectMood('lost', this)">
+                    <div class="mood-icon">🌫️</div>
+                    <div class="mood-label">Lost & Confused</div>
                 </div>
-
-                <button class="btn" onclick="getNewPsalm()">Another Psalm</button>
+                <div class="mood-btn" onclick="selectMood('weary', this)">
+                    <div class="mood-icon">😔</div>
+                    <div class="mood-label">Weary & Tired</div>
+                </div>
+                <div class="mood-btn" onclick="selectMood('numb', this)">
+                    <div class="mood-icon">💔</div>
+                    <div class="mood-label">Numb & Empty</div>
+                </div>
             </div>
+            
+            <button class="btn" onclick="showPsalm()">
+                Show Me My Psalm
+            </button>
+            
+            <button class="btn btn-secondary" onclick="showScreen('mainMenu')">
+                Back to Menu
+            </button>
         </div>
 
-        <!-- Wilderness Stories Screen -->
-        <div class="screen" id="wildernessStories">
+        <!-- Psalm Display Screen -->
+        <div class="screen" id="psalmScreen">
             <div class="header">
-                <h1>You're Not Alone</h1>
-                <p>God's greatest servants knew the wilderness</p>
+                <h1>Your Psalm Today</h1>
+                <p>David's prayer becomes yours</p>
             </div>
             
-            <div class="content-section">
-                <div class="story-card" onclick="expandStory('elijah', this)">
-                    <h3>Elijah Under the Broom Tree</h3>
-                    <p>When the mighty prophet wanted to die, God sent angels with bread and water...</p>
-                    <div class="story-expanded" id="story-elijah">
-                        After his greatest victory, Elijah ran in fear and prayed to die. God didn't scold him. Instead, He provided rest, food, and water. Then, in a gentle whisper, God reminded Elijah he wasn't alone. Sometimes the bravest thing is to accept care.
-                    </div>
+            <div class="psalm-box" id="psalmDisplay">
+                <h3>A Prayer for Your Heart</h3>
+                <div class="psalm-text">
+                    "Out of the depths I cry to you, Lord; Lord, hear my voice."
                 </div>
-
-                <div class="story-card" onclick="expandStory('david', this)">
-                    <h3>David in the Cave</h3>
-                    <p>Hiding from Saul, feeling abandoned, yet writing psalms of hope...</p>
-                    <div class="story-expanded" id="story-david">
-                        In the caves of Adullam and En Gedi, David poured out his complaints to God. He didn't pretend to be strong. These 'cave psalms' became Scripture, showing us that our honest cries in darkness become lights for others.
-                    </div>
-                </div>
-
-                <div class="story-card" onclick="expandStory('jesus', this)">
-                    <h3>Jesus in the Wilderness</h3>
-                    <p>40 days of hunger, temptation, and spiritual warfare before ministry began...</p>
-                    <div class="story-expanded" id="story-jesus">
-                        Before His ministry began, Jesus spent 40 days in the wilderness. Hungry, alone, tested. The Son of God knew wilderness. He understands yours. He emerged in the power of the Spirit, and so will you.
-                    </div>
-                </div>
-
-                <div class="story-card" onclick="expandStory('paul', this)">
-                    <h3>Paul's Thorn</h3>
-                    <p>When healing didn't come, grace proved sufficient...</p>
-                    <div class="story-expanded" id="story-paul">
-                        Three times Paul begged God to remove his thorn. The answer was no, but with it came a promise: 'My grace is sufficient.' Sometimes healing looks different than we expect.
-                    </div>
-                </div>
-
-                <div class="story-card" onclick="expandStory('job', this)">
-                    <h3>Job's Dark Night</h3>
-                    <p>Everything lost, sitting in ashes, yet finding God in the whirlwind...</p>
-                    <div class="story-expanded" id="story-job">
-                        Job lost everything and sat in ashes, scraping his sores. His friends failed him. His wife told him to curse God. But in the whirlwind, God came. Not with answers, but with Presence. It was enough.
-                    </div>
-                </div>
+                <div class="psalm-reference">Psalm 130:1-2</div>
             </div>
+            
+            <div style="padding: 20px; background: #f9fafb; border-radius: 10px; margin: 20px 0;">
+                <h4 style="color: #4a6572; margin-bottom: 10px;">Reflect:</h4>
+                <p style="color: #6b8e9f; line-height: 1.6;">
+                    David knew your pain. He cried these same tears. God heard him, and He hears you too.
+                </p>
+            </div>
+            
+            <button class="btn" onclick="getNewPsalm()">
+                Another Psalm
+            </button>
+            
+            <button class="btn btn-secondary" onclick="showScreen('moodCheck')">
+                Change Mood
+            </button>
+            
+            <button class="btn btn-secondary" onclick="showScreen('mainMenu')">
+                Back to Menu
+            </button>
         </div>
 
-        <!-- Simple Disciplines Screen -->
-        <div class="screen" id="simpleDisciplines">
+        <!-- Stories Menu -->
+        <div class="screen" id="storiesMenu">
+            <div class="header">
+                <h1>Wilderness Stories</h1>
+                <p>You're not the first to walk this path</p>
+            </div>
+            
+            <div class="story-card" onclick="showStory('elijah')">
+                <h3>🔥 Elijah's Depression</h3>
+                <p>When the prophet wanted to die</p>
+            </div>
+            
+            <div class="story-card" onclick="showStory('david')">
+                <h3>🎵 David in the Cave</h3>
+                <p>Hiding in darkness, writing psalms</p>
+            </div>
+            
+            <div class="story-card" onclick="showStory('jesus')">
+                <h3>✝️ Jesus in the Desert</h3>
+                <p>40 days of testing and hunger</p>
+            </div>
+            
+            <div class="story-card" onclick="showStory('job')">
+                <h3>💔 Job's Suffering</h3>
+                <p>When everything was taken</p>
+            </div>
+            
+            <button class="btn btn-secondary" onclick="showScreen('mainMenu')">
+                Back to Menu
+            </button>
+        </div>
+
+        <!-- Story Display Screen -->
+        <div class="screen" id="storyScreen">
+            <div class="header">
+                <h1 id="storyTitle">Story Title</h1>
+                <p>God was there in their wilderness</p>
+            </div>
+            
+            <div class="story-full" id="storyContent">
+                Story content will appear here
+            </div>
+            
+            <div class="psalm-box">
+                <h3>What This Means for You:</h3>
+                <p id="storyLesson" style="font-style: normal; color: #4a6572;">
+                    God is with you just as He was with them.
+                </p>
+            </div>
+            
+            <button class="btn btn-secondary" onclick="showScreen('storiesMenu')">
+                Back to Stories
+            </button>
+        </div>
+
+        <!-- Simple Disciplines Menu -->
+        <div class="screen" id="disciplinesMenu">
             <div class="header">
                 <h1>When Faith Feels Impossible</h1>
-                <p>Gentle practices for the wilderness season</p>
+                <p>Gentle practices for hard days</p>
             </div>
             
-            <div class="content-section">
-                <div class="discipline-item">
-                    <h4>The One-Word Prayer</h4>
-                    <p>When you can't find words, just whisper:</p>
-                    <div class="discipline-practice">
-                        "Help"<br>
-                        "Please"<br>
-                        "Jesus"<br>
-                        <small>That's enough. He hears.</small>
-                    </div>
-                </div>
-
-                <div class="discipline-item">
-                    <h4>The 3-Breath Practice</h4>
-                    <p>When anxiety overwhelms:</p>
-                    <div class="discipline-practice">
-                        Breathe in: "Lord..."<br>
-                        Hold: "I need..."<br>
-                        Breathe out: "You."<br>
-                        <small>Repeat until peace comes.</small>
-                    </div>
-                </div>
-
-                <div class="discipline-item">
-                    <h4>The Morning Anchor</h4>
-                    <p>Before the day's weight descends:</p>
-                    <div class="discipline-practice">
-                        Place your hand on your heart.<br>
-                        Say: "I am still loved today."<br>
-                        Nothing you do changes this.<br>
-                        <small>Start here, always.</small>
-                    </div>
-                </div>
-
-                <div class="discipline-item">
-                    <h4>The Evening Release</h4>
-                    <p>When sleep won't come:</p>
-                    <div class="discipline-practice">
-                        Name three things you carried today.<br>
-                        Imagine placing them in God's hands.<br>
-                        Say: "I'll pick these up tomorrow if You want me to."<br>
-                        <small>Rest is also holy.</small>
-                    </div>
+            <div class="discipline-card">
+                <h4>🙏 The One-Word Prayer</h4>
+                <p>When you can't find words</p>
+                <div class="practice-box">
+                    Simply whisper:<br>
+                    "Help"<br>
+                    "Please"<br>
+                    "Jesus"<br>
+                    That's enough. He hears.
                 </div>
             </div>
+            
+            <div class="discipline-card">
+                <h4>🌬️ The Three-Breath Practice</h4>
+                <p>When anxiety overwhelms</p>
+                <div class="practice-box">
+                    Breathe in: "Lord..."<br>
+                    Hold: "I need..."<br>
+                    Breathe out: "You."<br>
+                    Repeat until peace comes.
+                </div>
+            </div>
+            
+            <div class="discipline-card">
+                <h4>☀️ The Morning Anchor</h4>
+                <p>Before the day's weight</p>
+                <div class="practice-box">
+                    Hand on heart, say:<br>
+                    "I am still loved today."<br>
+                    Nothing changes this.<br>
+                    Start here.
+                </div>
+            </div>
+            
+            <div class="discipline-card">
+                <h4>🌙 The Evening Release</h4>
+                <p>When sleep won't come</p>
+                <div class="practice-box">
+                    Name three burdens.<br>
+                    Place them in God's hands.<br>
+                    Say: "These are Yours tonight."<br>
+                    Rest.
+                </div>
+            </div>
+            
+            <button class="btn btn-secondary" onclick="showScreen('mainMenu')">
+                Back to Menu
+            </button>
         </div>
 
-        <!-- Hope Reminders Screen -->
-        <div class="screen" id="hopeReminders">
+        <!-- Hope Screen -->
+        <div class="screen" id="hopeScreen">
             <div class="header">
-                <h1>Resurrection Is Coming</h1>
+                <h1>Remember: Dawn Is Coming</h1>
                 <p>Every wilderness has an end</p>
             </div>
             
-            <div class="content-section">
-                <div class="psalm-display">
-                    <h3>Remember: Weeping to Joy</h3>
-                    <div class="psalm-text">
-                        "Weeping may stay for the night, but rejoicing comes in the morning."
-                    </div>
-                    <div class="psalm-reference">Psalm 30:5</div>
+            <div class="psalm-box">
+                <h3>God's Promise to You</h3>
+                <div class="psalm-text">
+                    "Weeping may stay for the night, but rejoicing comes in the morning."
                 </div>
-
-                <div class="mood-section">
-                    <h3>God's Track Record</h3>
-                    <ul style="text-align: left; padding-left: 20px; line-height: 2;">
-                        <li>Joseph: From prison to palace</li>
-                        <li>Moses: From fugitive to deliverer</li>
-                        <li>Hannah: From barrenness to blessing</li>
-                        <li>Job: From ashes to restoration</li>
-                        <li>Peter: From denial to apostle</li>
-                        <li>Paul: From persecutor to preacher</li>
-                    </ul>
-                    <br>
-                    <p><strong>Your story isn't finished.</strong></p>
-                </div>
-
-                <div class="discipline-item">
-                    <h4>A Promise to Hold</h4>
-                    <div class="discipline-practice">
-                        "The God who brought you to this wilderness<br>
-                        is the same God who will lead you through it.<br>
-                        He has not forgotten you.<br>
-                        He cannot abandon you.<br>
-                        Morning is coming."
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Journal Space Screen -->
-        <div class="screen" id="journalSpace">
-            <div class="header">
-                <h1>Your Sacred Space</h1>
-                <p>Pour out your heart like water</p>
+                <div class="psalm-reference">Psalm 30:5</div>
             </div>
             
-            <div class="content-section">
-                <div class="mood-section">
-                    <h3>Today's Reflection</h3>
-                    <p>What do you need to tell God? What do you need to remember?</p>
-                    <br>
-                    <textarea class="journal-area" id="journalText" style="min-height: 300px;" placeholder="Write freely here. No judgment. No perfection needed. Just honesty..."></textarea>
-                    <br>
-                    <button class="btn-secondary" onclick="saveJournal()">Save to Heart</button>
-                </div>
-
-                <div class="discipline-item">
-                    <h4>A Closing Prayer</h4>
-                    <div class="discipline-practice">
-                        Lord,<br>
-                        I don't understand this wilderness,<br>
-                        but I trust the One who walks with me.<br>
-                        Give me bread for today,<br>
-                        courage for tomorrow,<br>
-                        and hope that dawn is coming.<br>
-                        Amen.
-                    </div>
+            <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3 style="color: #4a6572; margin-bottom: 15px;">Remember These Truths:</h3>
+                <ul style="line-height: 2; color: #6b8e9f; padding-left: 20px;">
+                    <li>This feeling is temporary, not permanent</li>
+                    <li>You are loved beyond measure</li>
+                    <li>Your life has purpose and meaning</li>
+                    <li>God is working even when you can't see it</li>
+                    <li>Many have walked this path and emerged stronger</li>
+                    <li>Your story isn't over</li>
+                </ul>
+            </div>
+            
+            <div class="discipline-card">
+                <h4>Hold On To This:</h4>
+                <div class="practice-box">
+                    "The God who brought you TO this wilderness<br>
+                    is the same God who will lead you THROUGH it.<br>
+                    He has not forgotten you.<br>
+                    Morning is coming."
                 </div>
             </div>
+            
+            <button class="btn btn-secondary" onclick="showScreen('mainMenu')">
+                Back to Menu
+            </button>
+        </div>
+
+        <!-- Journal Screen -->
+        <div class="screen" id="journalScreen">
+            <div class="header">
+                <h1>Pour Out Your Heart</h1>
+                <p>God collects every tear</p>
+            </div>
+            
+            <div style="margin: 20px 0;">
+                <h3 style="color: #4a6572; margin-bottom: 10px;">Write to God:</h3>
+                <p style="color: #6b8e9f; margin-bottom: 15px;">
+                    No perfect words needed. Just honesty.
+                </p>
+                <textarea class="journal-area" id="journalText" 
+                    placeholder="Dear God, today I feel..."></textarea>
+            </div>
+            
+            <button class="btn" onclick="saveJournal()">
+                Save This Prayer
+            </button>
+            
+            <div id="savedMessage" style="display: none; padding: 15px; background: #d4f1d4; border-radius: 8px; margin: 15px 0; text-align: center; color: #2d6a2d;">
+                ✓ Your prayer has been saved
+            </div>
+            
+            <button class="btn btn-secondary" onclick="showScreen('mainMenu')">
+                Back to Menu
+            </button>
         </div>
     </div>
 
     <!-- Bottom Navigation -->
     <div class="bottom-nav">
         <button class="nav-btn" onclick="showScreen('mainMenu')">🏠 Home</button>
+        <button class="nav-btn" onclick="showScreen('moodCheck')">🙏 Psalm</button>
+        <button class="nav-btn" onclick="showScreen('hopeScreen')">✨ Hope</button>
         <button class="nav-btn" onclick="showInfo()">ℹ️ Info</button>
         <button class="nav-btn" onclick="showAbout()">❤️ About</button>
     </div>
@@ -803,26 +773,23 @@
             </div>
             
             <div class="info-section">
-                <h3>What is Wilderness Journey?</h3>
-                <p>A biblical companion for depression and spiritual darkness. This app connects your current emotional state with the honest prayers of the Psalms, wilderness stories from Scripture, and gentle spiritual practices for when faith feels impossible.</p>
+                <h3>What is this app?</h3>
+                <p>A biblical companion for depression and spiritual darkness. Connect your feelings with Psalms, read wilderness stories, and find gentle practices for difficult days.</p>
             </div>
 
             <div class="info-section">
-                <h3>How to Use This App</h3>
-                <ul>
-                    <li>Start by selecting your current emotional state</li>
-                    <li>Explore psalms that match your feelings</li>
-                    <li>Read stories of biblical figures who faced similar struggles</li>
-                    <li>Try simple spiritual practices designed for difficult days</li>
-                    <li>Use the journal to process your thoughts and prayers</li>
-                    <li>Return daily for new encouragement and reminders of hope</li>
-                </ul>
+                <h3>How to Use</h3>
+                <p>1. Select how you're feeling today<br>
+                2. Read a Psalm that matches your mood<br>
+                3. Explore stories of biblical heroes<br>
+                4. Try simple spiritual practices<br>
+                5. Journal your prayers</p>
             </div>
 
             <div class="info-section">
-                <h3>Installing on Your Phone</h3>
-                <p><strong>iPhone:</strong> Tap the share button in Safari, then "Add to Home Screen"</p>
-                <p><strong>Android:</strong> Tap the menu (3 dots) in Chrome, then "Add to Home Screen"</p>
+                <h3>Install on Phone</h3>
+                <p><strong>iPhone:</strong> Tap share button → Add to Home Screen<br>
+                <strong>Android:</strong> Tap menu (3 dots) → Add to Home Screen</p>
             </div>
 
             <div class="crisis-note">
@@ -842,7 +809,7 @@
             
             <div class="info-section">
                 <h3>Our Mission</h3>
-                <p>Creating tools that meet people in their darkest valleys and walk with them toward hope, healing, and restoration.</p>
+                <p>Creating biblical tools for mental health support, bringing hope to those in life's valleys.</p>
             </div>
 
             <div class="info-section">
@@ -855,53 +822,178 @@
 
             <div class="donation-section">
                 <h3>Support This Work</h3>
-                <p>If this app encouraged you, consider supporting the work of Depths to Heights. Your donation helps us create more free, life-giving tools.</p>
-                <a href="https://www.paypal.com/donate/?hosted_button_id=8GRE7B8C3TP2U" class="donation-btn" target="_blank">Donate via PayPal</a>
+                <p>If this app has helped you, consider supporting our mission.</p>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=8GRE7B8C3TP2U" 
+                   class="donation-btn" target="_blank">Donate via PayPal</a>
             </div>
 
             <div class="crisis-note">
                 <strong>Remember:</strong><br>
-                If you are in crisis, please contact your local helpline for immediate support.
+                You are loved. You matter. Help is available.
             </div>
         </div>
     </div>
 
     <script>
-        // Audio Management
-        let audioContext;
-        let audioBuffer;
-        let audioSource;
+        // Global variables
+        let selectedMood = null;
+        let currentPsalmIndex = 0;
+        let audioContext = null;
         let isPlaying = false;
 
-        // Create gentle background audio
-        function initAudio() {
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            
-            // Create a simple, calming tone
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(174, audioContext.currentTime); // Low, calming frequency
-            
-            gainNode.gain.setValueAtTime(0.05, audioContext.currentTime); // Very quiet
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.start();
-            audioSource = oscillator;
-            isPlaying = true;
+        // Psalm Database
+        const psalms = {
+            darkness: [
+                { text: "Out of the depths I cry to you, Lord; Lord, hear my voice. Let your ears be attentive to my cry for mercy.", ref: "Psalm 130:1-2" },
+                { text: "My God, my God, why have you forsaken me? Why are you so far from saving me?", ref: "Psalm 22:1" },
+                { text: "How long, Lord? Will you forget me forever? How long will you hide your face from me?", ref: "Psalm 13:1" },
+                { text: "I am worn out from my groaning. All night long I flood my bed with weeping.", ref: "Psalm 6:6" },
+                { text: "Save me, O God, for the waters have come up to my neck.", ref: "Psalm 69:1" }
+            ],
+            lost: [
+                { text: "Send me your light and your faithful care, let them lead me.", ref: "Psalm 43:3" },
+                { text: "Show me your ways, Lord, teach me your paths. Guide me in your truth.", ref: "Psalm 25:4-5" },
+                { text: "You are my lamp, Lord; the Lord turns my darkness into light.", ref: "2 Samuel 22:29" },
+                { text: "The Lord is my light and my salvation—whom shall I fear?", ref: "Psalm 27:1" },
+                { text: "Your word is a lamp for my feet, a light on my path.", ref: "Psalm 119:105" }
+            ],
+            weary: [
+                { text: "Come to me, all you who are weary and burdened, and I will give you rest.", ref: "Matthew 11:28" },
+                { text: "I am worn out calling for help; my throat is parched.", ref: "Psalm 69:3" },
+                { text: "My soul is weary with sorrow; strengthen me according to your word.", ref: "Psalm 119:28" },
+                { text: "He gives strength to the weary and increases the power of the weak.", ref: "Isaiah 40:29" },
+                { text: "Even youths grow tired and weary, but those who hope in the Lord will renew their strength.", ref: "Isaiah 40:30-31" }
+            ],
+            numb: [
+                { text: "Why, my soul, are you downcast? Why so disturbed within me? Put your hope in God.", ref: "Psalm 42:11" },
+                { text: "The Lord is close to the brokenhearted and saves those who are crushed in spirit.", ref: "Psalm 34:18" },
+                { text: "My heart is blighted and withered like grass; I forget to eat my food.", ref: "Psalm 102:4" },
+                { text: "Restore to me the joy of your salvation and grant me a willing spirit.", ref: "Psalm 51:12" },
+                { text: "I have become like broken pottery.", ref: "Psalm 31:12" }
+            ]
+        };
+
+        // Story Database
+        const stories = {
+            elijah: {
+                title: "Elijah Under the Broom Tree",
+                content: "After defeating 450 prophets of Baal, Elijah ran in fear from Queen Jezebel. Exhausted and depressed, he sat under a broom tree and prayed to die: 'I have had enough, Lord. Take my life.' But God didn't scold or abandon him. Instead, He sent an angel with bread and water, let him rest, and then spoke to him in a gentle whisper. God reminded Elijah he wasn't alone - 7,000 others hadn't bowed to Baal. Sometimes the greatest prophets have the darkest moments.",
+                lesson: "God meets us in our exhaustion with tenderness, not judgment. He provides rest, nourishment, and reminds us we're never as alone as we think."
+            },
+            david: {
+                title: "David in the Cave",
+                content: "Hiding in the caves of Adullam and En Gedi, David was a fugitive running from King Saul. In these dark caves, feeling abandoned and afraid, David wrote some of his most powerful psalms. 'Look and see, there is no one at my right hand; no one is concerned for me. I have no refuge; no one cares for my life' (Psalm 142:4). Yet in that same psalm, he declares God as his refuge. The caves became his sanctuary.",
+                lesson: "Your darkest places can become holy ground. God is present in the caves of life, and your honest cries become songs that help others."
+            },
+            jesus: {
+                title: "Jesus in the Wilderness",
+                content: "For 40 days, Jesus fasted in the desert. Hungry, alone, and tested by Satan himself. The Son of God experienced physical weakness, isolation, and spiritual attack. He knows what it's like to be tempted to give up, to take shortcuts, to doubt the Father's care. But He emerged 'in the power of the Spirit.' The wilderness wasn't punishment - it was preparation.",
+                lesson: "Jesus understands your wilderness personally. He's been where you are. And just as the Father sent angels to minister to Him, help is coming for you too."
+            },
+            job: {
+                title: "Job's Dark Night",
+                content: "In a single day, Job lost everything - his children, wealth, and health. Sitting in ashes, scraping his sores with broken pottery, even his wife told him to 'curse God and die.' His friends accused him of hidden sin. For 37 chapters, Job wrestled with the question 'Why?' When God finally spoke, He didn't give answers but revealed Himself. Job's response: 'My ears had heard of you but now my eyes have seen you.' His story ends with double restoration.",
+                lesson: "Sometimes there are no answers to 'why,' but God's presence is enough. What the enemy means for destruction, God uses for greater blessing."
+            }
+        };
+
+        // Show screen function
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            setTimeout(() => {
+                document.getElementById(screenId).classList.add('active');
+            }, 100);
         }
 
+        // Mood selection
+        function selectMood(mood, element) {
+            selectedMood = mood;
+            document.querySelectorAll('.mood-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+
+        // Show psalm based on mood
+        function showPsalm() {
+            if (!selectedMood) {
+                selectedMood = 'darkness';
+            }
+            currentPsalmIndex = 0;
+            displayPsalm();
+            showScreen('psalmScreen');
+        }
+
+        // Display current psalm
+        function displayPsalm() {
+            const moodPsalms = psalms[selectedMood] || psalms.darkness;
+            const psalm = moodPsalms[currentPsalmIndex];
+            
+            document.getElementById('psalmDisplay').innerHTML = `
+                <h3>A Prayer for Your Heart</h3>
+                <div class="psalm-text">${psalm.text}</div>
+                <div class="psalm-reference">${psalm.ref}</div>
+            `;
+        }
+
+        // Get new psalm
+        function getNewPsalm() {
+            const moodPsalms = psalms[selectedMood] || psalms.darkness;
+            currentPsalmIndex = (currentPsalmIndex + 1) % moodPsalms.length;
+            displayPsalm();
+        }
+
+        // Show story
+        function showStory(storyKey) {
+            const story = stories[storyKey];
+            document.getElementById('storyTitle').textContent = story.title;
+            document.getElementById('storyContent').textContent = story.content;
+            document.getElementById('storyLesson').textContent = story.lesson;
+            showScreen('storyScreen');
+        }
+
+        // Save journal
+        function saveJournal() {
+            const text = document.getElementById('journalText').value;
+            if (text) {
+                // Save to localStorage
+                const journals = JSON.parse(localStorage.getItem('wildernessJournals') || '[]');
+                journals.push({
+                    text: text,
+                    date: new Date().toISOString()
+                });
+                localStorage.setItem('wildernessJournals', JSON.stringify(journals));
+                
+                // Show saved message
+                document.getElementById('savedMessage').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('savedMessage').style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Audio functions
         function toggleAudio() {
             const icon = document.getElementById('audioIcon');
             const toggle = document.getElementById('audioToggle');
             
             if (!audioContext) {
-                initAudio();
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(174, audioContext.currentTime);
+                gainNode.gain.setValueAtTime(0.02, audioContext.currentTime);
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                oscillator.start();
+                
+                isPlaying = true;
                 icon.textContent = '🔊';
-                toggle.classList.remove('muted');
             } else if (isPlaying) {
                 audioContext.suspend();
                 isPlaying = false;
@@ -915,221 +1007,7 @@
             }
         }
 
-        // Start Journey Function
-        function startJourney() {
-            showScreen('mainMenu');
-        }
-
-        // Screen Navigation
-        function showScreen(screenId) {
-            // Play transition sound
-            playTransitionSound();
-            
-            // Hide all screens
-            document.querySelectorAll('.screen').forEach(screen => {
-                screen.classList.remove('active');
-            });
-            
-            // Show selected screen
-            setTimeout(() => {
-                document.getElementById(screenId).classList.add('active');
-            }, 300);
-        }
-
-        // Mood Selection
-        let selectedMood = 'darkness';
-
-        function selectMood(mood, element) {
-            selectedMood = mood;
-            
-            // Update UI
-            document.querySelectorAll('.mood-btn').forEach(btn => {
-                btn.classList.remove('selected');
-            });
-            element.classList.add('selected');
-            
-            // Play feedback sound
-            playClickSound();
-        }
-
-        // Psalm Database - More extensive
-        const psalms = {
-            darkness: [
-                { text: "Out of the depths I cry to you, Lord; Lord, hear my voice. Let your ears be attentive to my cry for mercy.", reference: "Psalm 130:1-2" },
-                { text: "How long, Lord? Will you forget me forever? How long will you hide your face from me?", reference: "Psalm 13:1" },
-                { text: "My God, my God, why have you forsaken me? Why are you so far from saving me?", reference: "Psalm 22:1" },
-                { text: "Save me, O God, for the waters have come up to my neck. I sink in the miry depths, where there is no foothold.", reference: "Psalm 69:1-2" },
-                { text: "I am worn out calling for help; my throat is parched. My eyes fail, looking for my God.", reference: "Psalm 69:3" }
-            ],
-            lost: [
-                { text: "Send me your light and your faithful care, let them lead me; let them bring me to your holy mountain.", reference: "Psalm 43:3" },
-                { text: "You are my lamp, Lord; the Lord turns my darkness into light.", reference: "2 Samuel 22:29" },
-                { text: "Show me your ways, Lord, teach me your paths. Guide me in your truth.", reference: "Psalm 25:4-5" },
-                { text: "The Lord is my light and my salvation—whom shall I fear?", reference: "Psalm 27:1" },
-                { text: "For you have delivered me from death and my feet from stumbling, that I may walk before God in the light of life.", reference: "Psalm 56:13" }
-            ],
-            weary: [
-                { text: "Come to me, all you who are weary and burdened, and I will give you rest.", reference: "Matthew 11:28" },
-                { text: "He gives strength to the weary and increases the power of the weak.", reference: "Isaiah 40:29" },
-                { text: "I am worn out from my groaning. All night long I flood my bed with weeping.", reference: "Psalm 6:6" },
-                { text: "My soul is weary with sorrow; strengthen me according to your word.", reference: "Psalm 119:28" },
-                { text: "Even youths grow tired and weary, and young men stumble and fall; but those who hope in the Lord will renew their strength.", reference: "Isaiah 40:30-31" }
-            ],
-            numb: [
-                { text: "Why, my soul, are you downcast? Why so disturbed within me? Put your hope in God.", reference: "Psalm 42:11" },
-                { text: "The Lord is close to the brokenhearted and saves those who are crushed in spirit.", reference: "Psalm 34:18" },
-                { text: "My heart is blighted and withered like grass; I forget to eat my food.", reference: "Psalm 102:4" },
-                { text: "I have become like broken pottery. I am forgotten as though I were dead.", reference: "Psalm 31:12" },
-                { text: "Restore to me the joy of your salvation and grant me a willing spirit, to sustain me.", reference: "Psalm 51:12" }
-            ]
-        };
-
-        let psalmIndex = 0;
-
-        function getNewPsalm() {
-            const mood = selectedMood || 'darkness';
-            const moodPsalms = psalms[mood];
-            
-            // Cycle through psalms instead of random
-            psalmIndex = (psalmIndex + 1) % moodPsalms.length;
-            const currentPsalm = moodPsalms[psalmIndex];
-            
-            const display = document.getElementById('psalmDisplay');
-            display.innerHTML = `
-                <h3>A Prayer for Your Heart</h3>
-                <div class="psalm-text">${currentPsalm.text}</div>
-                <div class="psalm-reference">${currentPsalm.reference}</div>
-            `;
-            
-            playTransitionSound();
-        }
-
-        // Story Expansion - Fixed to show in screen instead of alert
-        function expandStory(storyId, element) {
-            const stories = {
-                elijah: {
-                    title: "Elijah Under the Broom Tree",
-                    content: "After his greatest victory over the prophets of Baal, Elijah ran in fear from Jezebel and prayed to die. But God didn't scold him. Instead, He provided rest, food, and water. An angel touched him twice, saying 'Get up and eat, for the journey is too much for you.' Then, in a gentle whisper at Mount Horeb, God reminded Elijah he wasn't alone - 7,000 others had not bowed to Baal. Sometimes the bravest thing is to accept care. God meets us in our exhaustion with tenderness, not judgment."
-                },
-                david: {
-                    title: "David in the Cave", 
-                    content: "In the caves of Adullam and En Gedi, David poured out his complaints to God while hiding from Saul who wanted to kill him. He didn't pretend to be strong. In Psalm 142, written from the cave, he cried 'No one cares for my soul.' These 'cave psalms' became Scripture, showing us that our honest cries in darkness become lights for others. God can handle our rawness. He saves our tears in His bottle."
-                },
-                jesus: {
-                    title: "Jesus in the Wilderness",
-                    content: "Before His ministry began, Jesus spent 40 days in the wilderness. Hungry, alone, tested by Satan himself. The Son of God knew wilderness - not as punishment but as preparation. He emerged 'in the power of the Spirit.' Your wilderness isn't wasted. It's not meaningless suffering. God is preparing you for something. You will emerge with power you didn't have before."
-                },
-                paul: {
-                    title: "Paul's Thorn",
-                    content: "Three times Paul begged God to remove his thorn in the flesh. Three times God said no. But with the 'no' came a promise: 'My grace is sufficient for you, for my power is made perfect in weakness.' Paul learned to boast in his weaknesses because when he was weak, then he was strong. Sometimes healing looks different than we expect. Sometimes the miracle is surviving with the thorn."
-                },
-                job: {
-                    title: "Job's Dark Night",
-                    content: "Job lost everything in a single day - his children, wealth, health. He sat in ashes, scraping his sores with pottery. His friends failed him with their theology. His wife told him to curse God and die. But in the whirlwind, God came. Not with answers, but with Presence. Job said, 'My ears had heard of you but now my eyes have seen you.' Sometimes seeing God is enough. The story ends with double restoration."
-                }
-            };
-            
-            const story = stories[storyId];
-            if (story) {
-                // Show story in the same screen with proper navigation
-                const storiesScreen = document.getElementById('wildernessStories');
-                storiesScreen.innerHTML = `
-                    <div class="header">
-                        <h1>${story.title}</h1>
-                        <p>A Biblical Wilderness Story</p>
-                    </div>
-                    
-                    <div class="content-section">
-                        <div class="psalm-display">
-                            <div class="psalm-text" style="text-align: left; font-style: normal;">
-                                ${story.content}
-                            </div>
-                        </div>
-                        
-                        <div class="discipline-item">
-                            <h4>What This Means for You</h4>
-                            <div class="discipline-practice">
-                                God is with you in your wilderness just as He was with ${storyId === 'jesus' ? 'His Son' : storyId.charAt(0).toUpperCase() + storyId.slice(1)}.<br>
-                                Your story isn't over.<br>
-                                This chapter is not the end.<br>
-                                Hold on. Dawn is coming.
-                            </div>
-                        </div>
-                        
-                        <button class="btn" onclick="loadWildernessStories()">Back to All Stories</button>
-                    </div>
-                `;
-            }
-            
-            playClickSound();
-        }
-        
-        // Function to reload wilderness stories screen
-        function loadWildernessStories() {
-            const storiesScreen = document.getElementById('wildernessStories');
-            storiesScreen.innerHTML = `
-                <div class="header">
-                    <h1>You're Not Alone</h1>
-                    <p>God's greatest servants knew the wilderness</p>
-                </div>
-                
-                <div class="content-section">
-                    <div class="story-card" onclick="expandStory('elijah', this)">
-                        <h3>Elijah Under the Broom Tree</h3>
-                        <p>When the mighty prophet wanted to die, God sent angels with bread and water...</p>
-                    </div>
-
-                    <div class="story-card" onclick="expandStory('david', this)">
-                        <h3>David in the Cave</h3>
-                        <p>Hiding from Saul, feeling abandoned, yet writing psalms of hope...</p>
-                    </div>
-
-                    <div class="story-card" onclick="expandStory('jesus', this)">
-                        <h3>Jesus in the Wilderness</h3>
-                        <p>40 days of hunger, temptation, and spiritual warfare before ministry began...</p>
-                    </div>
-
-                    <div class="story-card" onclick="expandStory('paul', this)">
-                        <h3>Paul's Thorn</h3>
-                        <p>When healing didn't come, grace proved sufficient...</p>
-                    </div>
-
-                    <div class="story-card" onclick="expandStory('job', this)">
-                        <h3>Job's Dark Night</h3>
-                        <p>Everything lost, sitting in ashes, yet finding God in the whirlwind...</p>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Journal Functions
-        function saveJournal() {
-            const journalText = document.getElementById('journalText').value;
-            if (journalText) {
-                // Save to localStorage
-                const journals = JSON.parse(localStorage.getItem('wildernessJournals') || '[]');
-                journals.push({
-                    text: journalText,
-                    date: new Date().toISOString()
-                });
-                localStorage.setItem('wildernessJournals', JSON.stringify(journals));
-                
-                // Show success message inline
-                const btn = event.target;
-                const originalText = btn.textContent;
-                btn.textContent = '✓ Saved to Your Heart';
-                btn.style.background = 'linear-gradient(135deg, #10b981 0%, #34d399 100%)';
-                
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                }, 2000);
-                
-                playTransitionSound();
-            }
-        }
-
-        // Modal Functions
+        // Modal functions
         function showInfo() {
             document.getElementById('infoModal').classList.add('active');
         }
@@ -1142,54 +1020,7 @@
             document.getElementById(modalId).classList.remove('active');
         }
 
-        // Sound Effects
-        function playTransitionSound() {
-            if (!audioContext || !isPlaying) return;
-            
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
-            oscillator.frequency.exponentialRampToValueAtTime(220, audioContext.currentTime + 0.3);
-            
-            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.3);
-        }
-
-        function playClickSound() {
-            if (!audioContext || !isPlaying) return;
-            
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
-            
-            gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.1);
-        }
-
-        // Initialize on first user interaction
-        document.addEventListener('click', function initAudioContext() {
-            if (!audioContext) {
-                // Remove this event listener after first click
-            }
-        }, { once: true });
-
-        // Close modals on background click
+        // Close modal on background click
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', function(e) {
                 if (e.target === this) {
